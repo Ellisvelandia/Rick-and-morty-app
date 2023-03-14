@@ -84,6 +84,7 @@ const LoginRickAndMorty = () => {
               autoFocus
               value={data.email}
               onChange={handleOnChange}
+              autoComplete="true"
             />
             <div className="relative">
               <input

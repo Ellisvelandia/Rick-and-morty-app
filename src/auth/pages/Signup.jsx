@@ -111,6 +111,7 @@ const Signup = () => {
             name="firstName"
             className="w-full bg-slate-200 px-2 py-1 rounded mt-1 mb-2 focus-within:outline-[#2EA860]"
             autoFocus
+            autoComplete="true"
             value={data.firstName}
             onChange={handleOnChange}
           />
@@ -120,6 +121,7 @@ const Signup = () => {
             type="text"
             id="lastName"
             name="lastName"
+            autoComplete="true"
             className="w-full mb-2 bg-slate-200 px-2 py-1 rounded mt-1 focus-within:outline-[#2EA860]"
             value={data.lastName}
             onChange={handleOnChange}
@@ -130,6 +132,7 @@ const Signup = () => {
             type="email"
             id="email"
             name="email"
+            autoComplete="true"
             className="w-full mb-2 bg-slate-200 px-2 py-1 rounded mt-1 focus-within:outline-[#2EA860]"
             value={data.email}
             onChange={handleOnChange}
