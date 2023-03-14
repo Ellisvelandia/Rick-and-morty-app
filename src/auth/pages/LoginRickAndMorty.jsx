@@ -55,7 +55,7 @@ const LoginRickAndMorty = () => {
 
       if (dataRes.alert) {
         dispatch(loginRedux(dataRes));
-        navigate("/");
+        navigate("/home");
       }
     } else {
       toast("Password enter required fields");
@@ -63,11 +63,11 @@ const LoginRickAndMorty = () => {
   };
 
   return (
-    <section className="bg-gray-100 min-h-screen flex items-center justify-center w-full">
-      <div className="bg-cyan-100 flex md:flex-row flex-col-reverse rounded-2xl shadow-lg md:max-w-5xl p-5">
+  <section className="min-h-screen flex items-center justify-center w-full text-white">
+      <div className="flex md:flex-row flex-col-reverse rounded-2xl shadow-lg md:max-w-5xl p-5">
         <div className="md:w-1/2 px-16">
-          <h2 className="font-bold text-3xl text-[#2EA860]">Login</h2>
-          <p className="text-lg md:mt-4 mt-2 text-[#2EA860]">
+          <h2 className="font-bold text-3xl text-[#65EF10]">Login</h2>
+          <p className="text-lg md:mt-4 mt-2 text-[#65EF10]">
             If youy already a member, easily log in
           </p>
           <form
@@ -99,13 +99,13 @@ const LoginRickAndMorty = () => {
               />
               <span
                 size={20}
-                className="absolute top-1/2 right-3 -translate-y-1/2 text-[#2EA860] cursor-pointer"
+                className="absolute top-1/2 right-3 -translate-y-1/2 text-[#65EF10] cursor-pointer"
                 onClick={togglePasswordVisibility}
               >
                 {eyeIcon}
               </span>
             </div>
-            <button className="rounded-xl text-white text-ellipsis py-2 bg-[#2EA860] hover:bg-[#1d8147]">
+            <button className="rounded-xl text-white text-ellipsis py-2 bg-[#65EF10] hover:bg-[#1d8147]">
               Login
             </button>
           </form>
@@ -119,7 +119,7 @@ const LoginRickAndMorty = () => {
             <p>Dont't have an account ?</p>
             <Link
               to="/signup"
-              className="py-2 px-5 bg-white border rounded-xl "
+              className="py-2 px-5 bg-white border rounded-xl text-[#65EF10]"
             >
               Register
             </Link>

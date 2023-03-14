@@ -74,8 +74,8 @@ const Signup = () => {
   };
 
   return (
-    <div className="bg-gray-100 min-h-screen flex flex-col items-center justify-center w-full">
-      <div className="bg-cyan-100 rounded-2xl shadow-lg md:max-w-7xl p-5">
+    <div className="min-h-screen flex flex-col items-center justify-center w-full text-white">
+      <div className="rounded-2xl shadow-lg md:max-w-7xl p-5">
         <div className="w-36 h-36 overflow-hidden rounded-full drop-shadow-md shadow-md m-auto relative">
           <img
             src={
@@ -109,7 +109,7 @@ const Signup = () => {
             type="text"
             id="firstName"
             name="firstName"
-            className="w-full bg-slate-200 px-2 py-1 rounded mt-1 mb-2 focus-within:outline-[#2EA860]"
+            className="w-full bg-slate-200 px-2 py-1 rounded mt-1 mb-2 focus-within:outline-[#65EF10]"
             autoFocus
             autoComplete="true"
             value={data.firstName}
@@ -122,7 +122,7 @@ const Signup = () => {
             id="lastName"
             name="lastName"
             autoComplete="true"
-            className="w-full mb-2 bg-slate-200 px-2 py-1 rounded mt-1 focus-within:outline-[#2EA860]"
+            className="w-full mb-2 bg-slate-200 px-2 py-1 rounded mt-1 focus-within:outline-[#65EF10]"
             value={data.lastName}
             onChange={handleOnChange}
           />
@@ -133,13 +133,13 @@ const Signup = () => {
             id="email"
             name="email"
             autoComplete="true"
-            className="w-full mb-2 bg-slate-200 px-2 py-1 rounded mt-1 focus-within:outline-[#2EA860]"
+            className="w-full mb-2 bg-slate-200 px-2 py-1 rounded mt-1 focus-within:outline-[#65EF10]"
             value={data.email}
             onChange={handleOnChange}
           />
 
           <label htmlFor="password">Password</label>
-          <div className="flex px-2 py-1 bg-slate-200 mt-1 mb-2 focus-within:outline-[#2EA860]">
+          <div className="flex px-2 py-1 bg-slate-200 mt-1 mb-2 focus-within:outline-[#65EF10]">
             <input
               type={showPassword ? "text" : "password"}
               id="password"
@@ -150,7 +150,7 @@ const Signup = () => {
               onChange={handleOnChange}
             />
             <span
-              className="flex text-xl text-[#2EA860]"
+              className="flex text-xl text-[#65EF10]"
               onClick={handleShowPassword}
             >
               {showPassword ? <GiBeastEye /> : <GiBoltEye />}
@@ -169,7 +169,7 @@ const Signup = () => {
               onChange={handleOnChange}
             />
             <span
-              className="flex text-xl text-[#2EA860]"
+              className="flex text-xl text-[#65EF10]"
               onClick={handleShowConfirmPassword}
             >
               {showConfirmPassword ? <GiBeastEye /> : <GiBoltEye />}
@@ -178,7 +178,7 @@ const Signup = () => {
           <div className="w-full flex justify-center">
             <button
               type="submit"
-              className="max-w-[150px] w-full bg-[#2EA860] hover:bg-[#1d8147] cursor-pointer text-white m-auto text-base text-center py-2 rounded-full mt-4"
+              className="max-w-[150px] w-full bg-[#65EF10] hover:bg-[#1d8147] cursor-pointer text-white m-auto text-base text-center py-2 rounded-full mt-4"
             >
               Sign up
             </button>
@@ -186,7 +186,7 @@ const Signup = () => {
         </form>
         <p className="text-left text-base mt-2">
           Already have account ?
-          <Link to="/login" className="text-[#2EA860] px-2">
+          <Link to="/login" className="text-[#65EF10] px-2">
             Login
           </Link>
         </p>
