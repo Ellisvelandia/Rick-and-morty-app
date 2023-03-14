@@ -2,6 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import LoginRickAndMorty from "../auth/pages/LoginRickAndMorty";
 import Signup from "../auth/pages/Signup";
 import { Characters, Episode, EpisodeVideo, Favorites, InfoCharacter, Location } from "../rickandmorty";
+import CardDetails from "../rickandmorty/components/location/CardDetails";
 import RickAndMortyPage from "../rickandmorty/pages/RickAndMortyPage";
 
 const AuthRoutes = () => {
@@ -15,6 +16,7 @@ const AuthRoutes = () => {
       <Route path="/episode" element={<Episode />} />
       <Route path="/episodevideo/:id" element={<EpisodeVideo />}></Route>
       <Route path="/location" element={<Location />} />
+      <Route path="/detail/:id" element={<CardDetails />}></Route>
       <Route path="/favorite" element={<Favorites />} />
     </Routes>
   );
