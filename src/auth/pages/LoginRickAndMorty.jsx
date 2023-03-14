@@ -72,7 +72,7 @@ const LoginRickAndMorty = () => {
           </p>
           <form
             action=""
-            className="flex flex-col gap-4"
+            className="flex flex-col gap-4 text-black"
             onSubmit={handleSubmit}
           >
             <input

@@ -6,7 +6,7 @@ const RickAndMortyPage = () => {
   return (
     <div className="flex flex-col">
       <header>
-      <Navbar />
+        <Navbar />
       </header>
       <main className="text-white h-screen">
         <div className="w-full flex align-center justify-center h-auto flex-col">
@@ -26,7 +26,7 @@ const RickAndMortyPage = () => {
               className="w-80 md:mt-0 md:w-[800px] flex m-auto h-50 object-cover"
             />
           </div>
-      <Layout />
+          <Layout />
         </div>
       </main>
     </div>
