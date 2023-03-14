@@ -1,6 +1,9 @@
 import { useState } from "react";
-import { FcGoogle } from "react-icons/fc";
 import { GiBeastEye, GiBoltEye } from "react-icons/gi";
+import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-hot-toast";
+import { useDispatch, useSelector } from "react-redux";
+import { loginRedux } from "../../redux/useSlice";
 
 const LoginRickAndMorty = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -14,56 +17,111 @@ const LoginRickAndMorty = () => {
     );
   };
 
+  const [data, setData] = useState({
+    email: "",
+    password: "",
+  });
+
+  const navigate = useNavigate();
+
+  const userData = useSelector((state) => state);
+
+  const dispatch = useDispatch();
+
+  const handleOnChange = (e) => {
+    const { name, value } = e.target;
+    setData((preve) => {
+      return {
+        ...preve,
+        [name]: value,
+      };
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const { email, password } = data;
+    if (email && password) {
+      const fetchData = await fetch("https://auth-show.onrender.com/login", {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      const dataRes = await fetchData.json();
+      toast(dataRes.message);
+
+      if (dataRes.alert) {
+        dispatch(loginRedux(dataRes));
+        navigate("/");
+      }
+    } else {
+      toast("Password enter required fields");
+    }
+  };
+
   return (
     <section className="bg-gray-100 min-h-screen flex items-center justify-center w-full">
       <div className="bg-cyan-100 flex md:flex-row flex-col-reverse rounded-2xl shadow-lg md:max-w-5xl p-5">
         <div className="md:w-1/2 px-16">
           <h2 className="font-bold text-3xl text-[#2EA860]">Login</h2>
-          <p className="text-sm md:mt-4 mt-2 text-[#2EA860]">
+          <p className="text-lg md:mt-4 mt-2 text-[#2EA860]">
             If youy already a member, easily log in
           </p>
-          <form action="" className="flex flex-col gap-4">
+          <form
+            action=""
+            className="flex flex-col gap-4"
+            onSubmit={handleSubmit}
+          >
             <input
               className="p-2 mt-8 rounded-lg border "
               type="email"
+              id="email"
               name="email"
               placeholder="Email"
+              autoFocus
+              value={data.email}
+              onChange={handleOnChange}
             />
             <div className="relative">
               <input
                 className="p-2 w-full rounded-lg border "
                 type={showPassword ? "text" : "password"}
                 name="password"
+                id="password"
                 placeholder="Password"
+                autoComplete="current-password"
+                value={data.password}
+                onChange={handleOnChange}
               />
               <span
                 size={20}
-                className="absolute top-1/2 right-3 -translate-y-1/2"
+                className="absolute top-1/2 right-3 -translate-y-1/2 text-[#2EA860] cursor-pointer"
                 onClick={togglePasswordVisibility}
               >
                 {eyeIcon}
               </span>
             </div>
-            <button className="rounded-xl text-white text-ellipsis py-2 bg-[#2EA860]">
+            <button className="rounded-xl text-white text-ellipsis py-2 bg-[#2EA860] hover:bg-[#1d8147]">
               Login
             </button>
           </form>
 
           <div className="mt-10 grid grid-cols-3 items-center text-gray-400">
             <hr className="border-gray-400" />
-            <p className="text-center text-sm">or</p>
             <hr className="border-gray-400" />
           </div>
 
-          <button className="bg-white py-2 w-full rounded-xl mt-5 flex items-center justify-center text-sm">
-            <FcGoogle size={25} className="mr-3" /> Login With Google
-          </button>
-
-          <div className="mt-3 text-xs flex justify-between items-center">
-            <p>Dont't have an account</p>
-            <button className="py-2 px-5 bg-white border rounded-xl ">
+          <div className="mt-3 md:text-base text-xs flex justify-between items-center">
+            <p>Dont't have an account ?</p>
+            <Link
+              to="/signup"
+              className="py-2 px-5 bg-white border rounded-xl "
+            >
               Register
-            </button>
+            </Link>
           </div>
         </div>
 

@@ -4,7 +4,8 @@ import Navbar from "./Navbar";
 const HeaderPage = () => {
   return (
     <header className="w-full">
-      <div className="w-full flex align-center justify-center my-8 h-auto">
+      <Navbar />
+      <div className="w-full flex align-center justify-center my-8 h-auto mt-16">
         <video
           autoPlay
           className="w-full 2xl:h-[520px] h-full object-cover mask"
@@ -22,8 +23,6 @@ const HeaderPage = () => {
           />
         </div>
       </div>
-
-      <Navbar />
     </header>
   );
 };
