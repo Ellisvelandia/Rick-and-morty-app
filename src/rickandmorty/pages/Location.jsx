@@ -43,6 +43,7 @@ const Location = () => {
               width="400"
               height="400"
               alt="logo rick and morty"
+              loading="lazy"
             />
           </Link>
         </div>

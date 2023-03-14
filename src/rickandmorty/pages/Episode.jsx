@@ -17,8 +17,17 @@ const Episode = () => {
 
   return (
     <div className="my-8">
-      <Link to="/home" className="lg:w-auto w-full inline-flex justify-center">
-        <img src={logo} alt="logo" className="md:w-80 w-60" />
+      <Link to="/home">
+        <div className="h-[200px] relative">
+          <img
+            src={logo}
+            alt="logo rick and morty inline-block"
+            className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+            width="400"
+            height="400"
+            loading="lazy"
+          />
+        </div>
       </Link>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 m-6">
         {episodes.map((episode) => {

@@ -5,7 +5,6 @@ import Button from "../components/Button";
 import { Link } from "react-router-dom";
 import logo from "/assets/logo.webp";
 
-
 const Characters = () => {
   const [characters, setCharacters] = useState([]);
   const [page, setPage] = useState(0);
@@ -37,12 +36,19 @@ const Characters = () => {
 
   return (
     <div className="my-8">
-      <Link to="/home" className="lg:w-auto w-full inline-flex justify-center mb-4">
-        <img
-          src={logo}
-          alt="logo rick and morty inline-block"
-          className="lg:w-80 w-60"
-        />
+      <Link
+        to="/home"
+      >
+        <div className="h-[200px] relative">
+          <img
+            src={logo}
+            alt="logo rick and morty inline-block"
+            className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+            width="400"
+            height="400"
+            loading="lazy"
+          />
+        </div>
       </Link>
       <Button nextPage={nextPage} prevPage={prevPage} />
       <div className="grid grid-cols-1 2xl:grid-cols-5 md:grid-cols-3 gap-4 m-6">
