@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { GiEarthAmerica } from "react-icons/gi";
 
 const LocationCard = ({ page, results }) => {
   let display;
@@ -20,41 +21,31 @@ const LocationCard = ({ page, results }) => {
               className="md:w-52 w-full md:h-52 h-80 mr-4 rounded"
               src={image}
               alt="card images"
+              loading="lazy"
             />
             <div>
               <div className="text-xl my-4">{name}</div>
               <div className="flex items-center">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-6 w-6 text-gray-400 mr-1"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm0-2a6 6 0 100-12 6 6 0 000 12zm0-5a1 1 0 011 1v1a1 1 0 01-2 0v-1a1 1 0 011-1zm0-7a1 1 0 011 1v3a1 1 0 01-2 0V5a1 1 0 011-1z"
-                    clipRule="evenodd"
-                  />
-                </svg>
+                <GiEarthAmerica className="h-6 w-6 text-gray-400 mr-1" />
                 <div className="text-base flex flex-wrap">{location.name}</div>
               </div>
 
               {(() => {
                 if (status === "Dead") {
                   return (
-                    <div className="absolute bg-red-500 text-center m-1">
+                    <div className="absolute bg-red-500 text-center m-1 p-1 text-lg tracking-widest">
                       {status}
                     </div>
                   );
                 } else if (status === "Alive") {
                   return (
-                    <div className="absolute bg-green-500 text-center m-1">
+                    <div className="absolute bg-green-500 text-center m-1 p-1 text-lg tracking-widest">
                       {status}
                     </div>
                   );
                 } else {
                   return (
-                    <div className="inline-block absolute text-center m-1">
+                    <div className="inline-block absolute text-center m-1 p-1 text-lg tracking-widest">
                       {status}
                     </div>
                   );
