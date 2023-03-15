@@ -37,6 +37,14 @@ const Layout = () => {
             </div>
           </Link>
         </div>
+        <div className="relative bg-gray-600 row-start-3 col-start-1 row-end-4 col-end-3 overflow-hidden">
+          <Link to="/favorite">
+            <div className="absolute w-full h-full bg-[url('/assets/favorite.webp')] bg-cover bg-center grayscale brightness-50 cursor-pointer hover:grayscale-0 hover:scale-[1.25] transition-[.6s] duration-[.6s]"></div>
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white z-[1] text-[24px] font-bold">
+              Favorite
+            </div>
+          </Link>
+        </div>
       </div>
     </section>
   );

@@ -36,9 +36,7 @@ const Characters = () => {
 
   return (
     <div className="my-8">
-      <Link
-        to="/home"
-      >
+      <Link to="/home">
         <div className="h-[200px] relative">
           <img
             src={logo}
