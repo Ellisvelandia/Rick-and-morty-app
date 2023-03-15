@@ -8,7 +8,7 @@ const RickAndMortyPage = () => {
       <header>
         <Navbar />
       </header>
-      <main className="text-white h-screen">
+      <main className="text-white h-screen mt-20">
         <div className="w-full flex align-center justify-center h-auto flex-col">
           <video
             autoPlay
