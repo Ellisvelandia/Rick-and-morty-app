@@ -1,8 +1,6 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-// import logo from "/assest/logo.webp";
+import { Link, useNavigate } from "react-router-dom";
 import { HiOutlineUserCircle } from "react-icons/hi";
-import { BsCartFill } from "react-icons/bs";
 import { useDispatch, useSelector } from "react-redux";
 import { logoutRedux } from "../../../redux/useSlice";
 import { toast } from "react-hot-toast";
@@ -11,6 +9,7 @@ const Header = () => {
   const [showMenu, setShowMenu] = useState(false);
   const userData = useSelector((state) => state.user);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleShowMenu = () => {
     setShowMenu((preve) => !preve);
@@ -18,6 +17,7 @@ const Header = () => {
   const handleLogout = () => {
     dispatch(logoutRedux());
     toast("Logout successfully");
+    navigate("/login");
   };
 
   return (

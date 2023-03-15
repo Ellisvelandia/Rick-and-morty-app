@@ -25,6 +25,7 @@ const LoginRickAndMorty = () => {
   const navigate = useNavigate();
 
   const userData = useSelector((state) => state);
+  const isAuthenticated = useSelector((state) => state.user.isAuthenticated);
 
   const dispatch = useDispatch();
 
