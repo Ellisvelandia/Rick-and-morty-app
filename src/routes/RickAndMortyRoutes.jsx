@@ -1,7 +1,14 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import LoginRickAndMorty from "../auth/pages/LoginRickAndMorty";
 import Signup from "../auth/pages/Signup";
-import { Characters, Episode, EpisodeVideo, Favorites, InfoCharacter, Location } from "../rickandmorty";
+import {
+  Characters,
+  Episode,
+  EpisodeVideo,
+  Favorites,
+  InfoCharacter,
+  Location,
+} from "../rickandmorty";
 import CardDetails from "../rickandmorty/components/location/CardDetails";
 import RickAndMortyPage from "../rickandmorty/pages/RickAndMortyPage";
 
@@ -18,6 +25,8 @@ const AuthRoutes = () => {
       <Route path="/location" element={<Location />} />
       <Route path="/detail/:id" element={<CardDetails />}></Route>
       <Route path="/favorite" element={<Favorites />} />
+
+      <Route path="/*" element={<Navigate to="/login" />} />
     </Routes>
   );
 };

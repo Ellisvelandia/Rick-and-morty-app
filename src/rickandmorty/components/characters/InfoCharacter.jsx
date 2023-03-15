@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 
 export default function SingleCharacter() {
   const [character, setCharacter] = useState({});
   const { id } = useParams();
+  const navigate = useNavigate();
 
   let { image, name, species, gender, origin, status, location } = character;
 
@@ -58,6 +59,7 @@ export default function SingleCharacter() {
           <Link
             to="/character"
             className="flex bg-[#166a74] py-2 md:mb-0 justify-center px-6 rounded mt-2 text-white hover:bg-cyan-600 drop-shadow-2xl transition-all duration-200 active:scale-90"
+            onClick={() => navigate(-1)}
           >
             &larr; Back
           </Link>

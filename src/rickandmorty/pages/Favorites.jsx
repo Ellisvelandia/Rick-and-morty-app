@@ -34,9 +34,13 @@ const Favorites = () => {
               <div>
                 <h4>{item.name}</h4>
               </div>
-              <div>
-                <img src={item.image} alt="charters favorites" className="aspect-video"/>
-              </div>
+              <Link to={`/card/${item.id}`}>
+                <img
+                  src={item.image}
+                  alt="charters favorites"
+                  className="aspect-video"
+                />
+              </Link>
               <div>
                 {favoritesChecker(item.id) ? (
                   <button onClick={() => removeFromFavorites(item.id)}>
