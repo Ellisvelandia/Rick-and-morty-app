@@ -13,6 +13,7 @@ const Favorites = () => {
     return boolean;
   };
 
+  
   return (
     <div className="w-full">
       <div className="w-full h-32 text-white flex justify-evenly items-center">
