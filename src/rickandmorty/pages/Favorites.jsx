@@ -24,10 +24,10 @@ const Favorites = () => {
 
   return (
     <div className="w-full">
-      <div className="w-full h-32 text-white flex justify-evenly items-center">
+      <div className="h-[200px] relative">
         <Link to="/home">
           <img
-            className="md:w-80 w-60 h-28"
+            className="lg:w-80 w-60 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
             src={logo}
             width="400"
             height="400"
@@ -41,10 +41,10 @@ const Favorites = () => {
           <Loading />
         </div>
       ) : (
-        <div className="favorites">
+        <div className="w-full place-content-center grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-1 text-center">
           {favorites.length > 0 ? (
             favorites.map((item) => (
-              <div key={item.id} className="text-lg text-white my-4">
+              <div key={item.id} className="text-lg text-white my-1 grid place-content-center">
                 <div>
                   <h4>{item.name}</h4>
                 </div>
@@ -52,7 +52,7 @@ const Favorites = () => {
                   <img
                     src={item.image}
                     alt="charters favorites"
-                    className="aspect-video"
+                    className="flex justify-center items-center object-fill"
                   />
                 </Link>
                 <div>

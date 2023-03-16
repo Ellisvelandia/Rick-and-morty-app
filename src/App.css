@@ -11,16 +11,6 @@ body {
   background-color: #02b0c8;
 }
 
-.favorites {
-  width: 100%;
-  min-height: 100vh;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  padding: 2.5rem;
-  justify-items: center;
-  text-align: center;
-}
-
 label {
   color: white;
 }
