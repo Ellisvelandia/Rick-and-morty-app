@@ -23,7 +23,7 @@ const Layout = () => {
         </div>
         <div className="relative bg-orange-200 row-start-2 col-start-1 row-end-3 col-end-2 overflow-hidden">
           <Link to="/episode">
-            <div className="absolute w-full h-full bg-[url('/assets/episodes.webp')] bg-cover bg-center grayscale brightness-50 cursor-pointer hover:grayscale-0 hover:scale-[1.25] transition-[.6s] duration-[.6s]"></div>
+            <div className="absolute w-full h-full bg-[url('/assets/episodes.webp')] bg-cover bg-bottom grayscale brightness-50 cursor-pointer hover:grayscale-0 hover:scale-[1.25] transition-[.6s] duration-[.6s]"></div>
             <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white z-[1] text-[24px] font-bold">
               Episodes
             </div>

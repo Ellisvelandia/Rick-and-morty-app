@@ -25,9 +25,9 @@ const VideoIntro = () => {
         <div className="w-full h-full rounded flex justify-center items-center">
           {playVideo ? (
             <BsPauseFill
-              color="#fff"
-              fontSize={40}
-              className="cursor-pointer"
+              color="#87CEEB"
+              fontSize={60}
+              className="cursor-pointer hover:scale-110"
               onClick={() => {
                 setPlayVideo(!playVideo);
                 if (playVideo) {
@@ -39,9 +39,9 @@ const VideoIntro = () => {
             />
           ) : (
             <BsFillPlayFill
-              color="#fff"
-              fontSize={40}
-              className="cursor-pointer"
+              color="#87CEEB"
+              fontSize={60}
+              className="cursor-pointer hover:scale-110"
               onClick={() => {
                 setPlayVideo(!playVideo);
                 if (playVideo) {
