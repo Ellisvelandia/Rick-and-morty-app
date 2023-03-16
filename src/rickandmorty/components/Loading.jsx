@@ -1,11 +1,11 @@
-import loader from '/assets/loader.gif'
+import loader from "/assets/loader.gif";
 
 const Loading = () => {
   return (
-    <div>
-      <Image src={loader} alt="Loader.." />
+    <div className="flex justify-center w-full">
+      <img src={loader} alt="Loader.." />
     </div>
-  )
-}
+  );
+};
 
-export default Loading
+export default Loading;

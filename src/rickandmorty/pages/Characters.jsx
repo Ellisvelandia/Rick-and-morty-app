@@ -4,9 +4,12 @@ import CardCharacters from "../components/characters/CardCharacters";
 import Button from "../components/Button";
 import { Link } from "react-router-dom";
 import logo from "/assets/logo.webp";
+import Loading from "../components/Loading";
 
 const Characters = () => {
   const [characters, setCharacters] = useState([]);
+  const [loading, setLoading] = useState(true);
+
   const [page, setPage] = useState(0);
   const [totalPages, setTotalPages] = useState(0);
 
@@ -17,6 +20,7 @@ const Characters = () => {
       );
       setCharacters(res.data.results);
       setTotalPages(res.data.info.pages);
+      setLoading(false);
     };
 
     fetchCharacters();
@@ -49,11 +53,17 @@ const Characters = () => {
         </div>
       </Link>
       <Button nextPage={nextPage} prevPage={prevPage} />
-      <div className="grid grid-cols-1 2xl:grid-cols-5 md:grid-cols-3 gap-4 m-6">
-        {characters.map((character) => {
-          return <CardCharacters character={character} key={character.id} />;
-        })}
-      </div>
+      {loading ? (
+        <div className="m-auto flex w-full">
+          <Loading />
+        </div>
+      ) : (
+        <div className="grid grid-cols-1 2xl:grid-cols-5 md:grid-cols-3 gap-4 m-6">
+          {characters.map((character) => {
+            return <CardCharacters character={character} key={character.id} />;
+          })}
+        </div>
+      )}
       <Button nextPage={nextPage} prevPage={prevPage} />
     </div>
   );
