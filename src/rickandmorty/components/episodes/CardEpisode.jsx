@@ -5,12 +5,12 @@ export const CardEpisode = ({ movie }) => {
   let { air_date, name, image, episode } = movie;
 
   return (
-    <div className="w-full text-center my-2 p-4 rounded bg-[#166a74] text-white text-2xl hover:bg-cyan-600 drop-shadow-2xl">
+    <div className="w-full text-center my-2 p-4 rounded bg-[#166a74] text-white lg:text-2xl md:text-xl text-base hover:bg-cyan-600 drop-shadow-2xl">
       <h2>Title: {name === "" ? "Unknown" : name}</h2>
       <img
         src={image === "" ? { image } : post}
         alt={name}
-        className="w-full p-4 xl:h-[550px] mx-auto"
+        className="w-full p-4 mx-auto"
         loading="lazy"
       />
       <h3>Episode:  {episode} </h3>

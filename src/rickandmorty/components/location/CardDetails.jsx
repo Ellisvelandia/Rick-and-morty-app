@@ -21,30 +21,30 @@ const CardDetails = () => {
       <h1 className="text-center lg:text-6xl text-3xl tracking-widest pb-4">
         {name}
       </h1>
-      <div className="flex md:flex-row flex-col justify-center gap-3 items-center">
+      <div className="flex md:flex-row flex-col gap-3 items-center">
         <img
           className="md:w-[500px] w-full h-auto"
           src={image}
           alt="character image"
         />
 
-        <div className="text-lg space-y-3">
-          <div className="flex items-center">
+        <div className="lg:text-3xl md:text-2xl text-xl md:space-y-5 space-y-3 ml-4">
+          <div className="flex">
             <span>Gender:</span>
             {gender}
           </div>
 
-          <div className="flex items-center">
+          <div className="flex ">
             <span>Location:</span>
             {location?.name}
           </div>
 
-          <div className="flex items-center">
+          <div className="flex ">
             <span>Origin:</span>
             {origin?.name}
           </div>
 
-          <div className="flex items-center">
+          <div className="flex ">
             <span>Species:</span>
             {species}
           </div>

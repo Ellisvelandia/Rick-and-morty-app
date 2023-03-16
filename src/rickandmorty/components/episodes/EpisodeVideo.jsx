@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import Loading from "../Loading";
 import { videos } from "./data";
 
 const EpisodeVideo = () => {
   const [episodes, setEpisodes] = useState({ videoUrl: "" });
+  const [loading, setLoading] = useState(true);
 
   const { id } = useParams();
 
@@ -20,6 +22,7 @@ const EpisodeVideo = () => {
           ...data,
           videoUrl: videos.find((video) => video.id === parseInt(id)).video,
         });
+        setLoading(false);
       } catch (error) {
         console.error(error);
       }
@@ -33,20 +36,26 @@ const EpisodeVideo = () => {
       <h1 className="text-white inline-flex items-center mt-1 justify-center w-full m-0 md:text-5xl text-xl">
         Episode: {name}
       </h1>
-      <div className="w-full relative">
-        <iframe
-          className="aspect-video h-full lg:my-1 my-8 px-2 lg:p-20 w-full"
-          width="100%"
-          loading="lazy"
-          height="500"
-          scrolling="no"
-          frameBorder="0"
-          src={episodes.videoUrl}
-          allowFullScreen="allowfullscreen"
-          webkitallowfullscreen="true"
-          mozallowfullscreen="true"
-        ></iframe>
-      </div>
+      {loading ? (
+        <div className="m-auto flex w-full">
+          <Loading />
+        </div>
+      ) : (
+        <div className="w-full relative">
+          <iframe
+            className="aspect-video h-full lg:my-1 my-8 px-2 lg:p-20 w-full"
+            width="100%"
+            loading="lazy"
+            height="500"
+            scrolling="no"
+            frameBorder="0"
+            src={episodes.videoUrl}
+            allowFullScreen="allowfullscreen"
+            webkitallowfullscreen="true"
+            mozallowfullscreen="true"
+          ></iframe>
+        </div>
+      )}
       <div className="w-full flex justify-center mt-2">
         <Link
           to="/episode"
