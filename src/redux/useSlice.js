@@ -1,13 +1,17 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+const isAuthenticatedFromLocalStorage =
+  localStorage.getItem("isAuthenticated") === "true";
+
 const initialState = {
   email: "",
   firstName: "",
   image: "",
   lastName: "",
   _id: "",
-  isAuthenticated: localStorage.getItem("isAuthenticated") === "true",
+  isAuthenticated: isAuthenticatedFromLocalStorage,
 };
+
 
 export const userSlice = createSlice({
   name: "user",
@@ -21,7 +25,7 @@ export const userSlice = createSlice({
       state.image = action.payload.data.image;
       state.isAuthenticated = true;
 
-      localStorage.setItem("user", JSON.stringify(state));
+      localStorage.setItem("user", JSON.stringify(action.payload.data));
       localStorage.setItem("isAuthenticated", "true");
     },
     logoutRedux: (state, action) => {
