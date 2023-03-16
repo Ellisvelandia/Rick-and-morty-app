@@ -16,7 +16,7 @@ const FormSignup = ({ handleSubmit, handleOnChange, data }) => {
   return (
     <form
       action=""
-      className="w-full py-3 px-5 max-w-md text-black"
+      className="w-full py-3 md:px-5 md:text-lg text-base px-4 max-w-md text-black"
       onSubmit={handleSubmit}
     >
       <label htmlFor="firstName">First Name</label>

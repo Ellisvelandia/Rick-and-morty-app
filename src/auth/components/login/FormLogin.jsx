@@ -57,7 +57,7 @@ const FormLogin = () => {
   return (
     <form
       action=""
-      className="flex flex-col gap-4 text-black"
+      className="flex flex-col gap-4 md:text-base text-sm text-black"
       onSubmit={handleSubmit}
     >
       <input

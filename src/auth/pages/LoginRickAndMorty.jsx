@@ -3,11 +3,11 @@ import FormLogin from "../components/login/FormLogin";
 
 const LoginRickAndMorty = () => {
   return (
-    <section className="min-h-screen flex items-center justify-center w-full text-white">
-      <div className="flex md:flex-row flex-col-reverse rounded-2xl shadow-lg md:max-w-5xl p-5">
-        <div className="md:w-1/2 px-16">
-          <h2 className="font-bold text-3xl text-[#65EF10]">Login</h2>
-          <p className="text-lg md:mt-4 mt-2 text-[#65EF10]">
+    <section className="min-h-screen flex items-center justify-center w-full text-white px-2">
+      <div className="flex md:flex-row flex-col-reverse rounded-2xl shadow-2xl md:max-w-5xl p-5">
+        <div className="md:w-1/2 md:px-16 px-2">
+          <h2 className="md:text-2xl text-xl text-[#65EF10] md:text-left text-center">Login</h2>
+          <p className="md:text-lg text-base md:mt-4 mt-2 tracking-widest text-[#65EF10]">
             If youy already a member, easily log in
           </p>
 
@@ -30,14 +30,15 @@ const LoginRickAndMorty = () => {
         </div>
 
         <div className="md:w-1/2 p-1 py-4">
-          <img
-            src="https://res.cloudinary.com/dr49dbp8d/image/upload/v1678680085/rickandmorty/rick-and-morty_va5oio.gif"
-            alt="rick and morty gifs"
+          <video
+            src="https://res.cloudinary.com/dr49dbp8d/video/upload/v1678994506/rickandmorty/rickLogin_yaroli.mp4"
+            loop
+            muted
+            autoPlay
             width={640}
             height={360}
             className="md:h-[400px] h-auto w-full rounded-2xl"
-            loading="lazy"
-          />
+          ></video>
         </div>
       </div>
     </section>

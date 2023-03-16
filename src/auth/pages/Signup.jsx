@@ -71,7 +71,7 @@ const Signup = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center w-full text-white">
+    <div className="min-h-screen flex flex-col items-center justify-center w-full text-white px-2">
       <div className="rounded-2xl shadow-lg md:max-w-7xl p-5">
         <div className="w-36 h-36 overflow-hidden rounded-full drop-shadow-md shadow-md m-auto relative">
           <img
