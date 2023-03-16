@@ -46,6 +46,8 @@ const FormLogin = () => {
       if (dataRes.alert) {
         dispatch(loginRedux(dataRes));
         navigate("/home");
+        localStorage.setItem("isAuthenticated", "true");
+        localStorage.setItem("user", JSON.stringify(dataRes.user)); 
       }
     } else {
       toast("Password enter required fields");

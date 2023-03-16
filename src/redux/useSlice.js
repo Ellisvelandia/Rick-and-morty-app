@@ -6,7 +6,7 @@ const initialState = {
   image: "",
   lastName: "",
   _id: "",
-  isAuthenticated: false,
+  isAuthenticated: localStorage.getItem("isAuthenticated") === "true",
 };
 
 export const userSlice = createSlice({
@@ -20,6 +20,9 @@ export const userSlice = createSlice({
       state.email = action.payload.data.email;
       state.image = action.payload.data.image;
       state.isAuthenticated = true;
+
+      localStorage.setItem("user", JSON.stringify(state));
+      localStorage.setItem("isAuthenticated", "true");
     },
     logoutRedux: (state, action) => {
       state._id = "";
@@ -28,6 +31,9 @@ export const userSlice = createSlice({
       state.email = "";
       state.image = "";
       state.isAuthenticated = false;
+
+      localStorage.removeItem("user");
+      localStorage.removeItem("isAuthenticated");
     },
   },
 });

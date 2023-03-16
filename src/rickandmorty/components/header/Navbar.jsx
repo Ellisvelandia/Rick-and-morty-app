@@ -17,6 +17,7 @@ const Header = () => {
   const handleLogout = () => {
     dispatch(logoutRedux());
     toast("Logout successfully");
+    localStorage.removeItem("user");
     navigate("/login");
   };
 
