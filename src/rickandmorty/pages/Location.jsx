@@ -37,52 +37,52 @@ const Location = () => {
 
   return (
     <div className="h-full">
-      {loading ? (
-        <div className="m-auto flex w-full">
-          <Loading />
+      <div className="grid gap-10">
+        <div className="h-[200px] relative">
+          <Link to="/home">
+            <img
+              className="lg:w-80 w-60 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+              src={logo}
+              width="400"
+              height="400"
+              alt="logo rick and morty"
+              loading="lazy"
+            />
+          </Link>
         </div>
-      ) : (
-        <div className="grid gap-10">
-          <div className="h-[200px] relative">
-            <Link to="/home">
-              <img
-                className="lg:w-80 w-60 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
-                src={logo}
-                width="400"
-                height="400"
-                alt="logo rick and morty"
-                loading="lazy"
-              />
-            </Link>
-          </div>
-          <div className="bg-cyan-600 text-white rounded-lg p-[1rem] flex flex-col justify-around items-center gap-[1rem] sm:flex-row">
-            <h1 className="text-center mb-3">
-              Location :
-              <span className="text-primary">
-                {name === "" ? "Unknown" : name}
-              </span>
-            </h1>
-            <h5 className="text-center">
-              Dimension: {dimension === "" ? "Unknown" : dimension}
-            </h5>
-            <h6 className="text-center">
-              Type: {type === "" ? "Unknown" : type}
-            </h6>
-          </div>
+        <div className="bg-cyan-600 text-white rounded-lg p-[1rem] flex flex-col justify-around items-center gap-[1rem] sm:flex-row">
+          <h1 className="text-center mb-3">
+            Location :
+            <span className="text-primary">
+              {name === "" ? "Unknown" : name}
+            </span>
+          </h1>
+          <h5 className="text-center">
+            Dimension: {dimension === "" ? "Unknown" : dimension}
+          </h5>
+          <h6 className="text-center">
+            Type: {type === "" ? "Unknown" : type}
+          </h6>
+        </div>
 
-          <div className="grid gap-[1rem] sm:grid-cols-[.5fr_1.5fr]">
-            <div className="bg-cyan-600 rounded-lg h-fit p-[1rem] flex flex-col gap-[1rem]">
-              <h4 className="text-center mb-4 text-white">Pick Location</h4>
-              <InputGroup name="Location" changeID={setNumber} total={126} />
-            </div>
-            <div className="flex flex-col gap-[1rem] w-full px-1">
+        <div className="grid gap-[1rem] sm:grid-cols-[.5fr_1.5fr]">
+          <div className="bg-cyan-600 rounded-lg h-fit p-[1rem] flex flex-col gap-[1rem]">
+            <h4 className="text-center mb-4 text-white">Pick Location</h4>
+            <InputGroup name="Location" changeID={setNumber} total={126} />
+          </div>
+          <div className="flex flex-col gap-[1rem] w-full px-1">
+            {loading ? (
+              <div className="m-auto flex w-full">
+                <Loading />
+              </div>
+            ) : (
               <div className="xl:grid-cols-3 md:grid-cols-2 grid-cols-1 shadow-md text-white text-2xl bg-cyan-600 drop-shadow-2xl rounded-lg p-[1rem] grid gap-[3rem]">
                 <LocationCard page="/location/" results={results} />
               </div>
-            </div>
+            )}
           </div>
         </div>
-      )}
+      </div>
     </div>
   );
 };
