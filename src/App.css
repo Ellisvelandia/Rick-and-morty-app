@@ -20,3 +20,7 @@ body {
   justify-items: center;
   text-align: center;
 }
+
+label {
+  color: white;
+}

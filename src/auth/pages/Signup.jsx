@@ -34,12 +34,19 @@ const Signup = () => {
       };
     });
   };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     const { firstName, email, password, confirmPassword } = data;
+    const emailRegex = /^\S+@\S+\.\S+$/; 
+
     if (firstName && email && password && confirmPassword) {
-      if (password === confirmPassword) {
+      if (!emailRegex.test(email)) {
+        toast("Please enter a valid email address");
+      } else if (password !== confirmPassword) {
+        toast("Password and confirm password not equal");
+      } else if (password.length < 8) {
+        toast("Password should be at least 8 characters long");
+      } else {
         const fetchData = await fetch("https://auth-show.onrender.com/signup", {
           method: "POST",
           headers: {
@@ -54,11 +61,9 @@ const Signup = () => {
         if (dataRes.alert) {
           navigate("/login");
         }
-      } else {
-        toast("Password and confirm password not equal");
       }
     } else {
-      toast("Password enter required fields");
+      toast("Please fill in all required fields");
     }
   };
 
@@ -85,6 +90,7 @@ const Signup = () => {
             }
             alt="logo gifs signup"
             className="w-full h-full"
+            loading="lazy"
           />
           <label htmlFor="profileImage">
             <div className="absolute bottom-0 h-1/3 bg-slate-500 bg-opacity-50 w-full text-center cursor-pointer">
