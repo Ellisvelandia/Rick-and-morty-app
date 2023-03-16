@@ -5,13 +5,13 @@ import logo from "/assets/logo.webp";
 const Layout = () => {
   return (
     <section className="w-full">
-      <div className="grid min-h-screen relative">
+      <div className="grid min-h-screen relative ">
         <img
           src={logo}
           alt=""
           width={400}
           height={400}
-          className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-[1]"
+          className="absolute md:inline hidden top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-[1]"
         />
         <div className="relative bg-gray-600 row-start-1 col-start-1 row-end-2 col-end-3 overflow-hidden">
           <Link to="/character">

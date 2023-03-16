@@ -2,18 +2,16 @@ import { Link } from "react-router-dom";
 import { useAppContext } from "../../context/appContext";
 import "../../routes/RickAndMortyRoutes";
 import logo from "/assets/logo.webp";
+import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 
 const Favorites = () => {
   const { favorites, addToFavorites, removeFromFavorites } = useAppContext();
-
-  console.log("favorites are", favorites);
 
   const favoritesChecker = (id) => {
     const boolean = favorites.some((item) => item.id === id);
     return boolean;
   };
 
-  
   return (
     <div className="w-full">
       <div className="w-full h-32 text-white flex justify-evenly items-center">
@@ -31,7 +29,7 @@ const Favorites = () => {
       <div className="favorites">
         {favorites.length > 0 ? (
           favorites.map((item) => (
-            <div key={item.id} className="text-white">
+            <div key={item.id} className="text-lg text-white my-4">
               <div>
                 <h4>{item.name}</h4>
               </div>
@@ -45,11 +43,17 @@ const Favorites = () => {
               <div>
                 {favoritesChecker(item.id) ? (
                   <button onClick={() => removeFromFavorites(item.id)}>
-                    Remove from Favorites
+                    <span className="inline-flex items-center gap-1">
+                      <AiFillStar />
+                      Remove from Favorites
+                    </span>
                   </button>
                 ) : (
                   <button onClick={() => addToFavorites(item)}>
-                    Add to Favorites
+                    <span className="inline-flex items-center gap-1">
+                      <AiOutlineStar />
+                      Add to Favorites
+                    </span>
                   </button>
                 )}
               </div>

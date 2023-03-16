@@ -41,7 +41,7 @@ const Characters = () => {
           <img
             src={logo}
             alt="logo rick and morty inline-block"
-            className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+            className="lg:w-80 w-60 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
             width="400"
             height="400"
             loading="lazy"

@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
-import poster from "/assets/episodes.webp";
 import { Link, useParams } from "react-router-dom";
+import { videos } from "./data";
 
 const EpisodeVideo = () => {
-  const [episodes, setEpisodes] = useState({});
+  const [episodes, setEpisodes] = useState({ videoUrl: "" });
+
   const { id } = useParams();
 
   let { name } = episodes;
@@ -15,7 +16,10 @@ const EpisodeVideo = () => {
           `https://rickandmortyapi.com/api/episode/${id}`
         );
         const data = await res.json();
-        setEpisodes(data);
+        setEpisodes({
+          ...data,
+          videoUrl: videos.find((video) => video.id === parseInt(id)).video,
+        });
       } catch (error) {
         console.error(error);
       }
@@ -26,26 +30,27 @@ const EpisodeVideo = () => {
 
   return (
     <div className="relative md:h-auto min-h-screen w-full flex flex-col justify-center text-center">
-      <h1 className="text-white absolute md:top-5 top-20 justify-center w-full m-0 md:text-5xl text-xl">
+      <h1 className="text-white inline-flex items-center mt-1 justify-center w-full m-0 md:text-5xl text-xl">
         Episode: {name}
       </h1>
-      <div className="w-full flex justify-center align-center h-screen">
-        <video
-          src=""
-          controls
+      <div className="w-full relative">
+        <iframe
+          className="aspect-video h-full lg:my-1 my-8 px-2 lg:p-20 w-full"
           width="100%"
-          height="100%"
-          poster={poster}
-          loop
           loading="lazy"
-          playsInline
-          className="aspect-video h-full md:my-0 my-auto px-2 md:p-20 w-full"
-        ></video>
+          height="500"
+          scrolling="no"
+          frameBorder="0"
+          src={episodes.videoUrl}
+          allowFullScreen="allowfullscreen"
+          webkitallowfullscreen="true"
+          mozallowfullscreen="true"
+        ></iframe>
       </div>
       <div className="w-full flex justify-center mt-2">
         <Link
           to="/episode"
-          className="md:absolute md:bottom-0 flex mb-4 bg-[#166a74] w-28 py-2 justify-center px-6 rounded text-white hover:bg-cyan-600 transition-all duration-200 active:scale-90 cursor-pointer"
+          className="flex mb-4 bg-[#166a74] w-28 py-2 justify-center px-6 rounded text-white hover:bg-cyan-600 transition-all duration-200 active:scale-90 cursor-pointer"
         >
           &larr; Back
         </Link>

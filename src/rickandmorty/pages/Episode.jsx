@@ -13,8 +13,6 @@ const Episode = () => {
       .then((res) => setEpisodes(res.data.results));
   }, []);
 
-  console.log(episodes);
-
   return (
     <div className="my-8">
       <Link to="/home">
@@ -22,7 +20,7 @@ const Episode = () => {
           <img
             src={logo}
             alt="logo rick and morty inline-block"
-            className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+            className="lg:w-80 w-60 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
             width="400"
             height="400"
             loading="lazy"
@@ -30,8 +28,8 @@ const Episode = () => {
         </div>
       </Link>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 m-6">
-        {episodes.map((episode) => {
-          return <CardEpisode episode={episode} key={episode.id} />;
+        {episodes.map((movie) => {
+          return <CardEpisode movie={movie} key={movie.id} />;
         })}
       </div>
     </div>
